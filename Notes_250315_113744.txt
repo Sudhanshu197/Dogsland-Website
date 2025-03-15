@@ -1,0 +1,67 @@
+// 📁 src/index.js (React Entry File)
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// 📁 src/App.js (Main Component)
+import React from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import Home from "./Home";
+
+function App() {
+  return (
+    <div>
+      <Navbar />
+      <Home />
+      <Footer />
+    </div>
+  );
+}
+export default App;
+
+// 📁 public/index.html (React Root File)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dogsland Training</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+
+// 📁 package.json (Dependencies & Scripts)
+{
+  "name": "dogsland-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+}
+
+// 📁 vercel.json (Vercel Settings)
+{
+  "version": 2,
+  "builds": [{ "src": "package.json", "use": "@vercel/static-build" }],
+  "routes": [{ "src": "/(.*)", "dest": "/index.html" }]
+}
